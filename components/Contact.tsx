@@ -64,7 +64,7 @@ const Contact = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              WhatsApp'tan Bilgi Al
+              WhatsApp&apos;tan Bilgi Al
             </motion.a>
             <motion.a
               href={siteConfig.phone.link}
@@ -174,7 +174,7 @@ const Contact = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                WhatsApp'a Gönder
+                WhatsApp&apos;a Gönder
               </motion.button>
 
               <p className="text-sm text-gray-500 text-center">

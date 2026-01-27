@@ -20,7 +20,7 @@ const Footer = () => {
             >
               <h3 className="text-2xl font-serif font-bold mb-4">{siteConfig.name}</h3>
               <p className="text-gray-300 leading-relaxed">
-                Sapanca'da premium konaklama deneyimi
+                Sapanca&apos;da premium konaklama deneyimi
               </p>
             </motion.div>
 
