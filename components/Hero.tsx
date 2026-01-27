@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { siteConfig } from '@/constants/siteConfig';
 
 const Hero = () => {
-  // Get first image as hero background
-  const heroImage = '/images/SnapInsta.to_482344075_18013577636686719_280753221615882520_n.jpg';
+  // Get collage image as hero background
+  const heroImage = '/images/SnapInsta.to_482411591_18013577561686719_5294833011458475782_n.jpg';
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
