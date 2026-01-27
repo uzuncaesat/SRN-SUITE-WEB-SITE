@@ -11,17 +11,17 @@ const Hero = () => {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-gray-900">
         <Image
           src={heroImage}
           alt={siteConfig.name}
           fill
           priority
-          className="object-cover"
+          className="object-contain object-center"
           quality={90}
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Content */}
