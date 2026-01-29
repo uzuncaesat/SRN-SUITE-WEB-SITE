@@ -39,3 +39,96 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-primary-600;
 }
+
+/* React Calendar Custom Styles */
+.calendar-wrapper {
+  @apply flex justify-center;
+}
+
+.calendar-wrapper .react-calendar {
+  @apply w-full max-w-md border-none rounded-xl bg-white shadow-sm font-sans;
+}
+
+.calendar-wrapper .react-calendar__navigation {
+  @apply mb-4 flex justify-between items-center;
+}
+
+.calendar-wrapper .react-calendar__navigation button {
+  @apply text-nature-forest font-semibold text-lg px-4 py-2 rounded-lg transition-colors;
+}
+
+.calendar-wrapper .react-calendar__navigation button:hover {
+  @apply bg-gray-100;
+}
+
+.calendar-wrapper .react-calendar__navigation button:disabled {
+  @apply text-gray-300 cursor-not-allowed;
+}
+
+.calendar-wrapper .react-calendar__month-view__weekdays {
+  @apply text-center font-semibold text-gray-500 text-sm mb-2;
+}
+
+.calendar-wrapper .react-calendar__month-view__weekdays abbr {
+  @apply no-underline;
+}
+
+.calendar-wrapper .react-calendar__month-view__days__day {
+  @apply p-2 text-center;
+}
+
+.calendar-wrapper .react-calendar__tile {
+  @apply p-3 rounded-lg text-sm font-medium transition-all duration-200;
+}
+
+.calendar-wrapper .react-calendar__tile:hover {
+  @apply bg-gray-100;
+}
+
+.calendar-wrapper .react-calendar__tile--now {
+  @apply ring-2 ring-primary-500 ring-offset-2;
+}
+
+.calendar-wrapper .react-calendar__tile--active {
+  @apply bg-primary-500 text-white;
+}
+
+/* Custom tile classes - using specific selectors to override react-calendar defaults */
+.calendar-wrapper .react-calendar__tile.calendar-tile-available {
+  @apply bg-green-500 text-white font-semibold;
+}
+
+.calendar-wrapper .react-calendar__tile.calendar-tile-available:hover {
+  @apply bg-green-600;
+}
+
+.calendar-wrapper .react-calendar__tile.calendar-tile-booked {
+  @apply bg-red-500 text-white font-semibold cursor-not-allowed;
+}
+
+.calendar-wrapper .react-calendar__tile.calendar-tile-booked:hover {
+  @apply bg-red-600;
+}
+
+.calendar-wrapper .react-calendar__tile.calendar-tile-past {
+  @apply bg-gray-200 text-gray-500 cursor-not-allowed;
+}
+
+.calendar-wrapper .react-calendar__tile.calendar-tile-past:hover {
+  @apply bg-gray-200;
+}
+
+/* Calendar responsive adjustments */
+@media (max-width: 640px) {
+  .calendar-wrapper .react-calendar {
+    @apply text-sm;
+  }
+  
+  .calendar-wrapper .react-calendar__tile {
+    @apply p-2;
+  }
+  
+  .calendar-wrapper .react-calendar__navigation button {
+    @apply text-base px-2;
+  }
+}

@@ -30,6 +30,7 @@ const Navbar = () => {
     { label: 'Konum', id: 'location' },
     { label: 'Olanaklar', id: 'amenities' },
     { label: 'Galeri', id: 'gallery' },
+    { label: 'Müsaitlik', id: 'availability' },
     { label: 'İletişim', id: 'contact' },
   ];
 

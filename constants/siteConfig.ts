@@ -141,4 +141,22 @@ Mesaj: ${data.message}`;
     description: "Merkezi konum avantajıyla hem sakin hem de her yere yakın.",
     placeholder: "Google Maps iframe linki buraya eklenecek",
   },
+  
+  // Airbnb Integration
+  airbnb: {
+    // iCal URL .env.local dosyasında AIRBNB_ICAL_URL olarak tanımlı
+    listingUrl: "https://www.airbnb.com.tr/rooms/54283390",
+  },
+  
+  // Availability Calendar Section
+  availabilityCalendar: {
+    title: "Müsaitlik Takvimi",
+    subtitle: "Rezervasyon durumunu kontrol edin",
+    legend: {
+      available: "Müsait",
+      booked: "Dolu",
+    },
+    noIcalMessage: "Güncel müsaitlik için lütfen iletişime geçin",
+    ctaText: "WhatsApp ile Rezervasyon Yap",
+  },
 };

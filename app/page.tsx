@@ -4,6 +4,7 @@ import About from '@/components/About';
 import LocationBenefits from '@/components/LocationBenefits';
 import Amenities from '@/components/Amenities';
 import Gallery from '@/components/Gallery';
+import AvailabilityCalendar from '@/components/AvailabilityCalendar';
 import MapSection from '@/components/MapSection';
 import Contact from '@/components/Contact';
 import Rules from '@/components/Rules';
@@ -19,6 +20,7 @@ export default function Home() {
       <LocationBenefits />
       <Amenities />
       <Gallery />
+      <AvailabilityCalendar />
       <MapSection />
       <Contact />
       <Rules />

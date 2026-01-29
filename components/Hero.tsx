@@ -12,13 +12,16 @@ const Hero = () => {
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
+        {/* Background color for mobile gaps when using object-contain */}
+        <div className="absolute inset-0 bg-nature-forest" />
         <Image
           src={heroImage}
           alt={siteConfig.name}
           fill
           priority
-          className="object-cover object-center"
+          className="object-contain md:object-cover md:object-top"
           quality={90}
+          sizes="100vw"
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/30" />
