@@ -1,5 +1,9 @@
 import { NextResponse } from 'next/server';
 
+// Disable Vercel edge caching - always fetch fresh data
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export interface CalendarEvent {
   start: string;
   end: string;
@@ -13,10 +17,10 @@ export interface CalendarResponse {
   hasIcalUrl: boolean;
 }
 
-// Cache the calendar data for 5 minutes
+// Cache the calendar data for 1 minute
 let cachedData: CalendarResponse | null = null;
 let cacheTime: number = 0;
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+const CACHE_DURATION = 1 * 60 * 1000; // 1 minute
 
 // Parse iCal date format (YYYYMMDD or YYYYMMDDTHHMMSS)
 function parseICalDate(dateStr: string): Date | null {
