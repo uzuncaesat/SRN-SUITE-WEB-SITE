@@ -2,13 +2,41 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { siteConfig } from '@/constants/siteConfig';
 
 const Hero = () => {
   const heroPoster = '/images/hero-poster.jpg';
   const containerRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // React "muted" attribute'unu HTML'e yazmadığı için mobil tarayıcılar
+    // autoplay'i engelleyebiliyor; property'leri elle garantile ve oynat
+    video.muted = true;
+    video.defaultMuted = true;
+
+    // Video önbellekten hızlı yüklenirse onCanPlay React bağlanmadan önce
+    // ateşlenmiş olabilir; hazırsa görünürlüğü burada tetikle
+    if (video.readyState >= 2) setVideoReady(true);
+    video.play().then(() => setVideoReady(true)).catch(() => {});
+
+    // Düşük Güç Modu gibi autoplay'in tamamen engellendiği durumlarda
+    // ilk dokunuşta oynatmayı tekrar dene
+    const onFirstInteraction = () => {
+      if (video.paused) video.play().catch(() => {});
+    };
+    window.addEventListener('touchstart', onFirstInteraction, { once: true, passive: true });
+    window.addEventListener('click', onFirstInteraction, { once: true });
+    return () => {
+      window.removeEventListener('touchstart', onFirstInteraction);
+      window.removeEventListener('click', onFirstInteraction);
+    };
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -70,6 +98,7 @@ const Hero = () => {
         />
 
         <motion.video
+          ref={videoRef}
           initial={{ opacity: 0, scale: 1.1 }}
           animate={videoReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.1 }}
           transition={{ duration: 1.8, ease: 'easeOut' }}
@@ -80,6 +109,7 @@ const Hero = () => {
           preload="auto"
           poster={heroPoster}
           onCanPlay={() => setVideoReady(true)}
+          onPlaying={() => setVideoReady(true)}
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
