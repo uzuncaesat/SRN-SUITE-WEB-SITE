@@ -146,8 +146,10 @@ const Hero = () => {
               className="w-24 h-[2px] bg-gradient-to-r from-transparent via-accent-gold to-transparent mx-auto mb-8"
             />
 
-            {/* Title with letter-by-letter animation */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 drop-shadow-2xl">
+            {/* Title with letter-by-letter animation.
+                whitespace-nowrap: inline-block harfler kelime ortasından kırılmasın;
+                clamp: her ekran genişliğinde tek satıra sığacak şekilde ölçeklensin */}
+            <h1 className="whitespace-nowrap text-[clamp(1.75rem,9vw,5.25rem)] font-serif font-bold text-white mb-6 drop-shadow-2xl">
               {title.split('').map((char, index) => (
                 <motion.span
                   key={index}
