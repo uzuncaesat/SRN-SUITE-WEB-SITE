@@ -2,25 +2,27 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import LocationBenefits from '@/components/LocationBenefits';
-import Amenities from '@/components/Amenities';
 import Gallery from '@/components/Gallery';
 import AvailabilityCalendar from '@/components/AvailabilityCalendar';
+import Reviews from '@/components/Reviews';
 import MapSection from '@/components/MapSection';
 import Contact from '@/components/Contact';
 import Rules from '@/components/Rules';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import ScrollProgress from '@/components/ScrollProgress';
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <About />
       <LocationBenefits />
-      <Amenities />
-      <Gallery />
       <AvailabilityCalendar />
+      <Reviews />
+      <Gallery />
       <MapSection />
       <Contact />
       <Rules />

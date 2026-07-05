@@ -76,43 +76,63 @@ export const siteConfig = {
     },
   ],
   
-  // Amenities
-  amenities: [
-    {
-      title: "Tamamen Müstakil",
-      icon: "home",
+  // Misafir Yorumları (Google + Airbnb karışık)
+  // Gerçek yorumlar - Google Maps ve Airbnb'den alınmıştır (Temmuz 2026)
+  reviews: {
+    title: "Misafir Yorumları",
+    subtitle: "Google ve Airbnb üzerinden misafirlerimizin gerçek deneyimleri",
+    googleLink: "https://www.google.com/maps/place/SRN+Suite%26House+Sapanca/@40.6899905,30.2085581,17z",
+    platforms: {
+      google: { rating: "4,9", count: 66 },
+      airbnb: { rating: "4,96", count: 91 },
     },
-    {
-      title: "Isıtmalı Havuz",
-      icon: "pool",
-    },
-    {
-      title: "Çift Kişilik Jakuzi",
-      icon: "hot-tub",
-    },
-    {
-      title: "Şömine",
-      icon: "fire",
-    },
-    {
-      title: "Sinema Sistemi",
-      icon: "tv",
-    },
-    {
-      title: "Kış Bahçesi",
-      description: "Şömine - Barbekü Alanı - Mutfak",
-      icon: "garden",
-    },
-    {
-      title: "Barbekü İmkanı",
-      icon: "grill",
-    },
-    {
-      title: "2 Yatak Odası",
-      icon: "bed",
-    },
-  ],
-  
+    items: [
+      {
+        name: "Çağla Ç.",
+        source: "google",
+        rating: 5,
+        date: "Ekim 2025",
+        text: "Tereddüt eden varsa etmesin, gerçekten çok güzel bir yer. Her şey tam olarak gözüktüğü gibi, parasına değiyor. Ev sahibi de her şeyle ilgileniyor. Tekrar bir yer tercih edeceğim zaman gözüm kapalı sadece buraya gelirim ❤️",
+      },
+      {
+        name: "Hande",
+        source: "airbnb",
+        rating: 5,
+        date: "Mayıs 2026",
+        text: "Keyifli ve sakin bir konaklamaydı. Ev temiz ve düzenliydi, ev sahibi ilgiliydi. Doğası ve atmosferi gerçekten çok güzeldi. Güzel bir kaçamak oldu, teşekkür ederiz 🌿",
+      },
+      {
+        name: "Qwicca",
+        source: "google",
+        rating: 5,
+        date: "Ekim 2025",
+        text: "Yıl dönümümüzü kutlamak için tercih ettik. Her şey tam istediğimiz gibiydi. Odalar temiz ve evin içi mis gibi kokuyordu, her şey düşünülmüştü. Havuz sıcaklığı yeterliydi, yağmurda yüzmek çok keyifli oldu. Tekrar tercih edeceğimiz yerlerden biri oldu.",
+      },
+      {
+        name: "Buğra",
+        source: "airbnb",
+        rating: 5,
+        date: "Ocak 2026",
+        text: "Osman Bey'e ilgi ve alakası için teşekkür ederiz. Sunulan hizmetler anlatıldığı gibiydi. İhtiyaçları zamanında karşıladı. Temizlik konusuna özellikle değinmek istiyorum, harikaydı.",
+      },
+      {
+        name: "Furkan K.",
+        source: "google",
+        rating: 5,
+        date: "Ocak 2026",
+        text: "Neredeyse iki yıldır bungalovlara gidiyorum, ilk defa SRN Suite'e gittim. Gönül rahatlığıyla şunu söyleyebiliyorum ki açık ara en iyisi buydu.",
+      },
+      {
+        name: "Enes",
+        source: "airbnb",
+        rating: 5,
+        date: "Şubat 2026",
+        text: "Eşimle beraber bir gece konakladık. Evin ve havuzun temizliğinden memnun kaldık. Havuzun sıcaklığı da gayet iyiydi. Özellikle kış bahçesi çok keyifliydi. Bizim için her şey güzeldi, teşekkür ederiz.",
+      },
+    ],
+  },
+
+
   // Rules
   rules: {
     message: "Sadece erkek gruplarına kiralama yapılamamaktadır.",
@@ -145,7 +165,7 @@ Mesaj: ${data.message}`;
   // Airbnb Integration
   airbnb: {
     // iCal URL .env.local dosyasında AIRBNB_ICAL_URL olarak tanımlı
-    listingUrl: "https://www.airbnb.com.tr/rooms/54283390",
+    listingUrl: "https://www.airbnb.com.tr/rooms/556094583063368205",
   },
   
   // Availability Calendar Section

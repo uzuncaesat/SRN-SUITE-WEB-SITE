@@ -29,49 +29,76 @@ const iconMap: Record<string, JSX.Element> = {
 
 const LocationBenefits = () => {
   return (
-    <section id="location" className="py-20 md:py-32 bg-gradient-to-b from-white to-primary-50/30">
-      <div className="container mx-auto px-4">
+    <section id="location" className="relative py-20 md:py-32 bg-gradient-to-b from-white via-primary-50/40 to-white overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-200/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-gold/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-6xl mx-auto"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-nature-forest mb-4 text-center">
+          <span className="inline-block text-sm uppercase tracking-[0.3em] text-accent-gold font-semibold mb-4">
+            Merkezi Konum
+          </span>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold text-nature-forest mb-4">
             Konum Avantajları
           </h2>
-          <p className="text-xl text-gray-600 mb-12 text-center">
-            Merkezi konumda, her şeye yakın
+          <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-accent-gold to-transparent mx-auto mb-6" />
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+            Sapanca&apos;nın kalbinde, her şeye yakın bir konumdayız
           </p>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {siteConfig.locationBenefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
-                    {iconMap[benefit.icon] || iconMap.shopping}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-nature-forest mb-2">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {benefit.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {siteConfig.locationBenefits.map((benefit, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              whileHover={{ y: -8 }}
+              className="group relative"
+            >
+              {/* Gradient border wrapper */}
+              <div className="relative rounded-2xl p-[1.5px] bg-gradient-to-br from-primary-200 via-transparent to-accent-gold/30 group-hover:from-primary-500 group-hover:to-accent-gold transition-all duration-500">
+                <div className="relative bg-white rounded-2xl p-6 md:p-8 h-full overflow-hidden">
+                  {/* Shine effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 via-primary-50/50 to-primary-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className="relative flex items-start gap-5">
+                    {/* Icon with rotate animation */}
+                    <motion.div
+                      whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                      className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:shadow-glow transition-all duration-300"
+                    >
+                      {iconMap[benefit.icon] || iconMap.shopping}
+                    </motion.div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-serif font-bold text-nature-forest mb-2 group-hover:text-primary-600 transition-colors">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Decorative corner */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-primary-100/50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -84,7 +84,8 @@ Proje standart Next.js yapısına sahip olduğu için herhangi bir Node.js hosti
 │   ├── Hero.tsx            # Hero section
 │   ├── About.tsx           # Hakkında bölümü
 │   ├── LocationBenefits.tsx # Konum avantajları
-│   ├── Amenities.tsx      # Olanaklar
+│   ├── AvailabilityCalendar.tsx # Müsaitlik takvimi
+│   ├── Reviews.tsx        # Misafir yorumları (Google + Airbnb)
 │   ├── Gallery.tsx        # Galeri
 │   ├── MapSection.tsx     # Harita
 │   ├── Contact.tsx        # İletişim formu

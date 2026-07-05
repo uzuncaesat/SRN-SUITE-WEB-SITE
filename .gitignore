@@ -33,3 +33,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# büyük kaynak video dosyaları (GitHub 100MB dosya limitini aşıyor)
+Fotoğraflar/*.MOV
+Fotoğraflar/*.mov

@@ -21,6 +21,106 @@
     @apply mx-auto px-4;
     max-width: 1280px;
   }
+
+  /* Glassmorphism utilities */
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  }
+
+  .glass-dark {
+    @apply bg-nature-forest/70 backdrop-blur-xl border border-white/10;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg border border-white/50 shadow-soft;
+  }
+
+  .glass-navbar {
+    @apply bg-white/75 backdrop-blur-2xl border-b border-white/30;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Text gradient */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-nature-forest bg-clip-text text-transparent;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-accent-gold via-amber-500 to-accent-gold bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: gradientShift 4s linear infinite;
+  }
+
+  /* Gradient animated background */
+  .gradient-animated {
+    background: linear-gradient(-45deg, #22c55e, #16a34a, #2d5016, #22c55e);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  /* Shimmer loading effect */
+  .shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Section reveal animations */
+  .reveal-blur {
+    filter: blur(10px);
+    opacity: 0;
+    transition: all 1s ease-out;
+  }
+  .reveal-blur.visible {
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  /* Tilt card effect */
+  .tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* Bento grid helpers */
+  .bento-large {
+    @apply sm:col-span-2 sm:row-span-2;
+  }
+
+  .bento-wide {
+    @apply sm:col-span-2;
+  }
+
+  .bento-tall {
+    @apply sm:row-span-2;
+  }
+
+  /* Magnetic button base */
+  .magnetic-btn {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* Image overlay on hover */
+  .img-hover-zoom {
+    overflow: hidden;
+  }
+  .img-hover-zoom img {
+    transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .img-hover-zoom:hover img {
+    transform: scale(1.08);
+  }
 }
 
 /* Custom scrollbar */
@@ -46,7 +146,8 @@
 }
 
 .calendar-wrapper .react-calendar {
-  @apply w-full max-w-md border-none rounded-xl bg-white shadow-sm font-sans;
+  @apply w-full max-w-md border-none rounded-2xl bg-white/90 backdrop-blur-md shadow-soft font-sans;
+  padding: 1rem;
 }
 
 .calendar-wrapper .react-calendar__navigation {
@@ -58,7 +159,7 @@
 }
 
 .calendar-wrapper .react-calendar__navigation button:hover {
-  @apply bg-gray-100;
+  @apply bg-primary-50;
 }
 
 .calendar-wrapper .react-calendar__navigation button:disabled {
@@ -78,11 +179,11 @@
 }
 
 .calendar-wrapper .react-calendar__tile {
-  @apply p-3 rounded-lg text-sm font-medium transition-all duration-200;
+  @apply p-3 rounded-lg text-sm font-medium transition-all duration-300;
 }
 
 .calendar-wrapper .react-calendar__tile:hover {
-  @apply bg-gray-100;
+  @apply scale-105;
 }
 
 .calendar-wrapper .react-calendar__tile--now {
@@ -95,15 +196,15 @@
 
 /* Custom tile classes - using specific selectors to override react-calendar defaults */
 .calendar-wrapper .react-calendar__tile.calendar-tile-available {
-  @apply bg-green-500 text-white font-semibold;
+  @apply bg-green-500 text-white font-semibold shadow-sm;
 }
 
 .calendar-wrapper .react-calendar__tile.calendar-tile-available:hover {
-  @apply bg-green-600;
+  @apply bg-green-600 shadow-md;
 }
 
 .calendar-wrapper .react-calendar__tile.calendar-tile-booked {
-  @apply bg-red-500 text-white font-semibold cursor-not-allowed;
+  @apply bg-red-500 text-white font-semibold cursor-not-allowed shadow-sm;
 }
 
 .calendar-wrapper .react-calendar__tile.calendar-tile-booked:hover {
@@ -115,7 +216,7 @@
 }
 
 .calendar-wrapper .react-calendar__tile.calendar-tile-past:hover {
-  @apply bg-gray-200;
+  @apply bg-gray-200 scale-100;
 }
 
 /* Calendar responsive adjustments */
@@ -130,5 +231,36 @@
   
   .calendar-wrapper .react-calendar__navigation button {
     @apply text-base px-2;
+  }
+}
+
+/* Reviews marquee */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 90s linear infinite;
+  will-change: transform;
+}
+
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
