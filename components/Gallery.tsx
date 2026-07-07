@@ -7,9 +7,9 @@ import Image from 'next/image';
 const Gallery = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  // public/images/gallery/ klasöründeki fotoğraflar (gallery-01.jpg ... gallery-21.jpg)
+  // public/images/gallery/ klasöründeki fotoğraflar (gallery-01.jpg ... gallery-26.jpg)
   const images = Array.from(
-    { length: 21 },
+    { length: 26 },
     (_, i) => `/images/gallery/gallery-${String(i + 1).padStart(2, '0')}.jpg`
   );
 

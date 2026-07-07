@@ -117,7 +117,7 @@ const About = () => {
                 Öne Çıkanlar
               </h3>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {siteConfig.about.highlights.slice(0, 8).map((highlight, index) => (
+                {siteConfig.about.highlights.map((highlight, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: 20 }}

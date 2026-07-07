@@ -41,6 +41,7 @@ export const siteConfig = {
       "🔗 Tamamen müstakil",
       "🏊‍♂️ Isıtmalı Havuz",
       "🔥 Şömine",
+      "🎬 Sinema Sistemi",
       "🏖  2 kişilik jakuzi",
       "🛏  2 yatak odalı",
       "🛁 Ortak kullanım banyo",
